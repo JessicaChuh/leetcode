@@ -10,10 +10,13 @@ k = 4
 
 def findMaxAverage(nums,k):
     left = 0
+
     ans = []
+    total = sum(nums[left:left + k])
     while left + k <= len(nums):
-        ans.append(sum(nums[left:left+k])/k)
+        ans.append(total/k)
         left += 1
-    return round(max(ans),5)
+        total = total - nums[left] + nums[left + k]
+    return float(max(ans))
 
 print(findMaxAverage(nums,k))
