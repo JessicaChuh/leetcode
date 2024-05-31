@@ -15,11 +15,13 @@
 nums = [-7,1,7,3,6,5,6,-9]
 
 def pivotIndex(nums):
-    mid = len(nums)//2 + 1
-    while 0 <= mid <= len(nums)-1:
-        if sum(nums[:mid]) > sum(nums[mid:]):
+    mid = 0
+    while pointer < len(nums):
+        left_sum = sum(nums[:mid])
+        right_sum = sum(nums[mid+1:])
+        if left_sum > right_sum:
             mid -= 1
-        elif sum(nums[:mid]) < sum(nums[mid:]):
+        elif left_sum < right_sum:
             mid += 1
         else:
             return mid
