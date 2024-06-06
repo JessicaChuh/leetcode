@@ -10,3 +10,16 @@ import numpy as np
 def equalPairs(grid):
     array_original = np.array(grid)
     array_t = array_original.T
+
+    n_pair = 0
+    for i in grid:
+        for j in array_t.tolist():
+            if i == j:
+                n_pair += 1
+    return n_pair
+
+print(equalPairs(grid))
+
+## Take away:
+# np.unique(grid,axis=0)
+#array_t.tolist()
