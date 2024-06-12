@@ -14,7 +14,7 @@
 
 #first try
 
-def removeStars(self, s: str) -> str:
+def RemoveStars(s):
         s = list(s)
         for i in range(s.count('*')):
             if s.index('*') > 0:
@@ -25,4 +25,18 @@ def removeStars(self, s: str) -> str:
         return ''.join(s)
 
 #time complexity is O(n^2), because index() is looping through
-# the whole list of
+# the whole list. where I didn't pass the test where
+# len(s) = 10000 and s.count('*') = 5000
+
+
+#Instead using a stack-based way:
+
+def removeStars(s):
+    ans = []
+    for i in s:
+        if i != '*':
+            ans.apend(i)
+        elif ans:
+            i.pop()
+
+    return ''.join(ans)
