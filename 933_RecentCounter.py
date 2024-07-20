@@ -12,6 +12,8 @@
 #It is guaranteed that every call to ping uses a strictly larger value of t than
 #the previous call.
 
+from collections import deque
+
 class RecentCounter:
 
     def __init__(self):
