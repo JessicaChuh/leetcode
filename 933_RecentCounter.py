@@ -33,3 +33,9 @@ class RecentCounter:
 # Your RecentCounter object will be instantiated and called as such:
 # obj = RecentCounter()
 # param_1 = obj.ping(t)
+
+#deque() as double-ended queue!! Need to initiation
+#d = queue()
+#d = queue([1,2,3])
+#d.appendleft(0)
+#d.popleft()
