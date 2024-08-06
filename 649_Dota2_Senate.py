@@ -46,3 +46,26 @@ class Solution:
                     flag -= 1
         # 循环结束之后，R和D只能有一个为true
         return "Radiant" if R else "Dire"
+
+from collections import deque
+
+def predictPartyVictory(senate: str) -> str:
+    n = len(senate)
+    radiant = deque()
+    dire = deque()
+
+    # Initialize the queues with senator indices
+    for i, s in enumerate(senate):
+        if s == 'R':
+            radiant.append(i)
+        else:
+            dire.append(i)
+
+    while radiant and dire:
+        r, d = radiant.popleft(), dire.popleft()
+        if r < d:
+            radiant.append(r + n)
+        else:
+            dire.append(d + n)
+
+    return "Radiant" if radiant else "Dire"
